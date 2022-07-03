@@ -26,13 +26,13 @@ factory = StemmerFactory()
 stemmer = factory.create_stemmer()
 listStopword =  set(stopwords.words('indonesian')) 
 
-st.title(f'Road Map Riset Berdasarkan Pattern Mining Jurnal Ilmiah')
+st.title(f'Roadmaps Penelitian Berdasarkan Pattern Mining Jurnal Ilmiah')
 
 st.sidebar.subheader("Konfigurasi")
 file = st.sidebar.file_uploader("Choose a file")
 
-ori = st.sidebar.checkbox('Tampilkan Data Original')
-nlp = st.sidebar.checkbox('Tampilkan Data NLP')
+ori = st.sidebar.checkbox('Data Original')
+nlp = st.sidebar.checkbox('Data NLP')
 
 def read_data(x,file):
     XL = pd.ExcelFile(file)
@@ -141,7 +141,7 @@ if file is not None:
 
     rekomendasi = dict(Counter([n for n in ', '.join(pf['sequence'].values.tolist()).split(', ') if n in topik])).keys()
 
-    st.subheader(f"Rekomendasi Bidang Riset : {', '.join(rekomendasi)}")
+    st.subheader(f"Rekomendasi Bidang Penelitian : {', '.join(rekomendasi)}")
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("Kata yang Sering Muncul")
